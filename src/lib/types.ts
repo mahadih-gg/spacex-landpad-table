@@ -1,4 +1,4 @@
-type LandPadItemType = {
+export type LandPadItemType = {
   images: {
     large: string[];
   };
@@ -17,3 +17,6 @@ type LandPadItemType = {
   launches: string[];
   id: string;
 };
+
+
+export type ViewModeType = "list" | "grid"

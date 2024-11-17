@@ -13,7 +13,9 @@ const config = {
 		alias: {
 			src: 'src',
 			components: 'src/routes/components',
-			assets: 'src/lib/assets'
+			lib: 'src/lib',
+			assets: 'src/lib/assets',
+			store: 'src/lib/store'
 		}
 	}
 };

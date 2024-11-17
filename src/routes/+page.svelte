@@ -1,9 +1,19 @@
 <script lang="ts">
 	import LandingPadsTable from 'components/LandingPadsTable/LandingPadsTable.svelte';
+	import { landingPadsStore } from 'store/landingPads.store.svelte';
+
 	export let data;
 
+	let { ladingPadsData, viewMode } = landingPadsStore();
+
 	const { landingPads } = data;
-	console.log(landingPads);
+	ladingPadsData = landingPads;
+
+	console.log(ladingPadsData);
 </script>
 
-<LandingPadsTable {landingPads} />
+{#if viewMode === 'list'}
+	<LandingPadsTable {ladingPadsData} />
+{:else}
+	Grid
+{/if}

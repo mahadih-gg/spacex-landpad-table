@@ -1,62 +1,53 @@
 <script lang="ts">
-  import { Modal, TableBodyCell, TableBodyRow } from 'flowbite-svelte';
-  import { LinkOutline } from 'flowbite-svelte-icons';
+	import { Modal, TableBodyCell, TableBodyRow } from 'flowbite-svelte';
+	import { LinkOutline } from 'flowbite-svelte-icons';
+	import type { LandPadItemType } from 'src/lib/types';
 
-  interface PropsType {
-    item: LandPadItemType
-  }
-  const { item }:PropsType = $props();
-  const { full_name, locality, region, landing_successes, wikipedia, status, details } = item
+	interface PropsType {
+		item: LandPadItemType;
+	}
+	const { item }: PropsType = $props();
+	const { full_name, locality, region, landing_successes, wikipedia, status, details } = item;
 
-  let isOpenModal:boolean = $state(false)
+	let isOpenModal: boolean = $state(false);
 
-  const handleOpenModal = () => isOpenModal = true;
-
+	const handleOpenModal = () => (isOpenModal = true);
 </script>
 
 <TableBodyRow class="[&>td]:font-semibold [&>td]:text-sm">
-  
-  <TableBodyCell>{full_name ?? ""}</TableBodyCell>
-  
-  <TableBodyCell>{locality ?? ""}</TableBodyCell>
+	<TableBodyCell>{full_name ?? ''}</TableBodyCell>
 
-  <TableBodyCell>{region ?? ""}</TableBodyCell>
+	<TableBodyCell>{locality ?? ''}</TableBodyCell>
 
-  <TableBodyCell>
-    <button onclick={handleOpenModal} class="text-xs bg-gray-100 hover:bg-gray-200 py-1 px-2 rounded-lg">
-      View Details
-    </button>
-  </TableBodyCell>
+	<TableBodyCell>{region ?? ''}</TableBodyCell>
 
-  <TableBodyCell>{landing_successes}</TableBodyCell>
+	<TableBodyCell>
+		<button
+			onclick={handleOpenModal}
+			class="text-xs bg-gray-100 hover:bg-gray-200 py-1 px-2 rounded-lg"
+		>
+			View Details
+		</button>
+	</TableBodyCell>
 
-  <TableBodyCell>
-    <a 
-    href={wikipedia} 
-    class="text-blue-500 hover:text-blue-600" 
-    target="_blank" 
-    rel="wikipedia"
-    >
-      <LinkOutline />
-    </a>
-  </TableBodyCell>
+	<TableBodyCell>{landing_successes}</TableBodyCell>
 
-  <TableBodyCell>
-    <span 
-    class={`capitalize py-1 px-2 rounded-lg ${status === "active" ? "bg-green-100 text-green-800" : status === "retired" ? "bg-red-100 text-red-800" : "bg-blue-100 text-blue-800" }`}
-    >
-    {status ?? ""}
-  </span>
-  </TableBodyCell>
+	<TableBodyCell>
+		<a href={wikipedia} class="text-blue-500 hover:text-blue-600" target="_blank" rel="wikipedia">
+			<LinkOutline />
+		</a>
+	</TableBodyCell>
 
+	<TableBodyCell>
+		<span
+			class={`capitalize py-1 px-2 rounded-lg ${status === 'active' ? 'bg-green-100 text-green-800' : status === 'retired' ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800'}`}
+		>
+			{status ?? ''}
+		</span>
+	</TableBodyCell>
 </TableBodyRow>
 
-<Modal 
-  bind:open={isOpenModal} 
-  autoclose 
-  outsideclose 
->
-  <h3 slot="header" class="text-lg font-semibold text-gray-800">{full_name}</h3>
-  <p class="text-base font-normal leading-relaxed text-gray-500 dark:text-gray-400">{details}</p>
-  
+<Modal bind:open={isOpenModal} autoclose outsideclose>
+	<h3 slot="header" class="text-lg font-semibold text-gray-800">{full_name}</h3>
+	<p class="text-base font-normal leading-relaxed text-gray-500 dark:text-gray-400">{details}</p>
 </Modal>

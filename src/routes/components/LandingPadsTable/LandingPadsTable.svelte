@@ -3,10 +3,7 @@
 	import LandingPadsTableItem from 'components/LandingPadsTable/LandingPadsTableItem.svelte';
 	import { Table, TableBody, TableHead, TableHeadCell } from 'flowbite-svelte';
 
-	interface PropsType {
-		landingPads: LandPadItemType[];
-	}
-	const { landingPads }: PropsType = $props();
+	let { ladingPadsData }: any = $props();
 </script>
 
 <div>
@@ -14,19 +11,23 @@
 	<div class="w-full shadow rounded-lg overflow-hidden">
 		<Table class="w-full">
 			<TableHead class="text-left uppercase text-gray-500 bg-gray-50 text-xs [&>th]:font-semibold">
-				<TableHeadCell>Full Name</TableHeadCell>
-				<TableHeadCell>Location Name</TableHeadCell>
-				<TableHeadCell>Region</TableHeadCell>
-				<TableHeadCell>Details</TableHeadCell>
-				<TableHeadCell>Success Rate</TableHeadCell>
-				<TableHeadCell>WikiPedia Link</TableHeadCell>
-				<TableHeadCell>Status</TableHeadCell>
+				{@render th('Full Name')}
+				{@render th('Location Name')}
+				{@render th('Region')}
+				{@render th('Details')}
+				{@render th('Success Rate')}
+				{@render th('WikiPedia Link')}
+				{@render th('Status')}
 			</TableHead>
 			<TableBody tableBodyClass="divide-y">
-				{#each landingPads as item}
+				{#each ladingPadsData as item}
 					<LandingPadsTableItem {item} />
 				{/each}
 			</TableBody>
 		</Table>
 	</div>
 </div>
+
+{#snippet th(label: string)}
+	<TableHeadCell>{label}</TableHeadCell>
+{/snippet}
