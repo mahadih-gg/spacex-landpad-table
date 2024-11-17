@@ -1,5 +1,11 @@
 <script>
+  import Header from "components/global/header.svelte";
   import "src/app.css";
+
 </script>
 
-<slot />
+<Header />
+
+<main class="container">
+  <slot />
+</main>

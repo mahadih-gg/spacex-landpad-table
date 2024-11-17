@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 export const load = async () => {
 
-  const fetchLandPads = async () => {
+  const fetchLandingPads = async () => {
 
     const baseUrl = process.env.BASE_URL;
 
@@ -11,6 +11,6 @@ export const load = async () => {
   }
 
   return {
-    landPads: await fetchLandPads()
+    landingPads: await fetchLandingPads()
   }
 }

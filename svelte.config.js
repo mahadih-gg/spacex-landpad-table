@@ -12,6 +12,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			src: 'src',
+			components: 'src/routes/components',
 			assets: 'src/lib/assets'
 		}
 	}
