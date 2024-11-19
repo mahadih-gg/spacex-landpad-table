@@ -1,8 +1,9 @@
 <script lang="ts">
+	import LandingPadsGrid from 'components/LandingPadsGrid/LandingPadsGrid.svelte';
 	import LandingPadsTable from 'components/LandingPadsTable/LandingPadsTable.svelte';
-	import LandingPadsTableHeader from 'components/LandingPadsTable/LandingPadsTableHeader.svelte';
 	import MapView from 'components/MapView.svelte';
 	import RateCart from 'components/RateCart.svelte';
+	import Toolbar from 'src/routes/components/global/Toolbar.svelte';
 	import { landingPadsStore } from 'store/landingPads.store.svelte';
 
 	export let data;
@@ -12,17 +13,16 @@
 	const { landingPads } = data;
 	ladingPadsData = landingPads;
 
-	console.log(landingPads)
-
+	console.log(landingPads);
 </script>
 
 <div class="lg:flex justify-between space-y-10 lg:space-y-0 gap-10">
 	<section class="w-full lg:w-7/12 xl:w-9/12">
-		<LandingPadsTableHeader />
+		<Toolbar />
 		{#if viewMode === 'list'}
 			<LandingPadsTable {ladingPadsData} />
 		{:else}
-			Grid
+			<LandingPadsGrid {ladingPadsData} />
 		{/if}
 	</section>
 

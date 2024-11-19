@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LandingPadsTableHeader from 'components/LandingPadsTable/LandingPadsTableHeader.svelte';
 	import LandingPadsTableItem from 'components/LandingPadsTable/LandingPadsTableItem.svelte';
 	import { Table, TableBody, TableHead, TableHeadCell } from 'flowbite-svelte';
 
