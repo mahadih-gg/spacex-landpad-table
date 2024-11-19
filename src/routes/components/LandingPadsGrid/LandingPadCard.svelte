@@ -18,11 +18,12 @@
 <Card
 	img={currentItem?.images?.large[0]}
 	onclick={handleOpenModal}
-	imgClass="h-full md:h-40"
-	class="w-full cursor-pointer space-y-3"
+	imgClass="h-full md:h-60"
+	class="w-full cursor-pointer"
 	size="none"
+	padding="md"
 >
-	<h5 class="text-2xl font-bold tracking-tight text-gray-900">{currentItem?.full_name}</h5>
+	<h5 class="text-xl font-bold tracking-tight text-gray-700">{currentItem?.full_name}</h5>
 
 	<div class="flex-start gap-2 py-3 text-xs [&>span]:py-1 [&>span]:px-2 [&>span]:rounded-lg">
 		<span
@@ -46,7 +47,7 @@
 	</div>
 
 	<div
-		class="text-sm space-y-2 [&>div>label]:text-gray-500 [&>div>span]:text-gray-800 [&>div>span]:font-semibold"
+		class="text-xs space-y-2 [&>div>label]:text-gray-500 [&>div>span]:text-gray-800 [&>div>span]:font-semibold"
 	>
 		<div>
 			<label>Locality: </label>
@@ -71,7 +72,7 @@
 				>{successRate}</span
 			>
 		</div>
-		<p class="text-sm line-clamp-2"><label>Details: </label> {currentItem?.details}</p>
+		<p class="text-xs line-clamp-2"><label>Details: </label> {currentItem?.details}</p>
 	</div>
 </Card>
 
