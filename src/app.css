@@ -5,26 +5,34 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-  }
+	* {
+		box-sizing: border-box;
+		font-family: 'Inter', sans-serif;
+	}
 }
 
 @layer utilities {
-  .flex-start {
-    @apply flex items-center justify-start;
-  }
+	.flex-start {
+		@apply flex items-center justify-start;
+	}
 
-  .flex-end {
-    @apply flex items-center justify-end;
-  }
+	.flex-end {
+		@apply flex items-center justify-end;
+	}
 
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
+	.flex-center {
+		@apply flex items-center justify-center;
+	}
 
-  .flex-between {
-    @apply flex items-center justify-between;
-  }
+	.flex-between {
+		@apply flex items-center justify-between;
+	}
+
+	.card {
+		@apply w-full rounded-lg border border-[#E5E7EB] shadow;
+	}
+
+	.card-heading {
+		@apply p-4 border-b text-base font-bold tracking-tight text-gray-900;
+	}
 }

@@ -22,7 +22,7 @@
 	console.log(filterBy);
 </script>
 
-<div class="flex-between py-5">
+<div class="flex-between pb-5">
 	<div class="flex-start [&>button]:border [&>button]:border-gray-200 [&>button]:p-1.5">
 		<button
 			onclick={() => handleViewModeChange('list')}

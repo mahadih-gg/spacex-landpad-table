@@ -81,7 +81,7 @@
         <span class="relative inline-flex rounded-full size-3 ${markerColor}"></span>
       </div>
     `;
-		
+
 		// @ts-ignore
     return L.divIcon({
       html: html,
@@ -90,10 +90,9 @@
   }
 </script>
 
-<div class="w-full min-h-96 rounded-lg border border-[#E5E7EB] shadow">
-  <h5 class="p-4 border-b text-base font-bold tracking-tight text-gray-900">Map View</h5>
-
+<div class="card">
+  <h5 class="card-heading">Map View</h5>
 	<!-- map container -->
-  <div bind:this={container} class="w-full h-80"></div>
+  <div bind:this={container} class="w-full p-4 h-80"></div>
 </div>
 
