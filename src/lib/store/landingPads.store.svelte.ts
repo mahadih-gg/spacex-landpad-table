@@ -1,35 +1,24 @@
 import type { LandPadItemType, ViewModeType } from 'lib/types';
+import { writable } from 'svelte/store';
 
-export function landingPadsStore() {
+let filterBy = writable('');
+let viewMode = writable<ViewModeType>('list');
+let ladingPadsData = writable<LandPadItemType[]>([]);
 
-  let filterBy = $state('');
-  let viewMode = $state<ViewModeType>('list');
-  let ladingPadsData = $state<LandPadItemType[]>([]);
+const handleViewMode = (value: ViewModeType) => {
+  viewMode.set(value)
+}
 
-  console.log("store >>>", viewMode, ladingPadsData)
+const handleFilter = (value: string) => {
+  filterBy.set(value)
+}
 
-  return {
-    get filterBy() {
-      return filterBy;
-    },
-    set filterBy(newValue: string) {
-      filterBy = newValue;
-    },
-
-    get viewMode() {
-      return viewMode;
-    },
-    set viewMode(newValue: ViewModeType) {
-      viewMode = newValue;
-    },
-
-    get ladingPadsData() {
-      return ladingPadsData;
-    },
-    set ladingPadsData(newValue: LandPadItemType[]) {
-      ladingPadsData = newValue;
-    },
-  }
+export const landingPadsStore = {
+  filterBy,
+  viewMode,
+  ladingPadsData,
+  handleViewMode,
+  handleFilter
 }
 
 

@@ -2,18 +2,19 @@
 	import type { ApexOptions } from 'apexcharts';
 	import { Chart } from 'flowbite-svelte';
 	import { getSuccessRate } from 'src/lib';
+	import { landingPadsStore } from 'src/lib/store/landingPads.store.svelte';
 	import type { LandPadItemType } from 'src/lib/types';
 
-	let { ladingPadsData }: any = $props();
+	let { ladingPadsData } = landingPadsStore;
 
 	// ====== Calculate success rates for each landing pad ======== //
-	const seriesData = ladingPadsData.map((pad: LandPadItemType) => {
+	const seriesData = $ladingPadsData.map((pad: LandPadItemType) => {
 		const successRate = getSuccessRate(pad.landing_successes, pad.landing_attempts);
 		return successRate;
 	});
 
 	// ======== Create dynamic labels for each landing pad ========= //
-	const labelsData = ladingPadsData.map((pad: LandPadItemType) => pad.name);
+	const labelsData = $ladingPadsData.map((pad: LandPadItemType) => pad.name);
 
 	const options: ApexOptions = {
 		series: seriesData,
@@ -43,7 +44,7 @@
 							label: 'Landing Pads',
 							fontFamily: 'Inter, sans-serif',
 							formatter: function () {
-								return `${ladingPadsData?.length}`;
+								return `${$ladingPadsData?.length}`;
 							}
 						},
 						value: {

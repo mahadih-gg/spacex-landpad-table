@@ -1,17 +1,19 @@
 <script lang="ts">
+	import { landingPadsStore } from 'src/lib/store/landingPads.store.svelte';
+	import type { LandPadItemType } from 'src/lib/types';
 	import { onMount } from 'svelte';
 
 	// Declare map variable and container to bind the DOM element
 	let map: L.Map;
 	let container: HTMLElement | null = null;
-	let { ladingPadsData }: any = $props();
+	let { ladingPadsData } = landingPadsStore;
 
 	const markerLocations: {
 		full_name: string;
 		latitude: number;
 		longitude: number;
 		status: string;
-	}[] = ladingPadsData.map((pad) => {
+	}[] = $ladingPadsData.map((pad: LandPadItemType) => {
 		return {
 			full_name: pad.full_name,
 			latitude: pad.latitude,
