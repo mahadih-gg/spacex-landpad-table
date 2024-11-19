@@ -27,7 +27,7 @@
 
 		<button
 			onclick={() => handleViewMode('grid')}
-			class={`rounded-r-md ${$viewMode === 'grid' ? 'bg-[#EBEDF0] text-blue-600' : 'text-gray-800'}`}
+			class={`rounded-r-md ${$viewMode !== 'list' ? 'bg-[#EBEDF0] text-blue-600' : 'text-gray-800'}`}
 		>
 			<GridSolid />
 		</button>

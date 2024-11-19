@@ -50,29 +50,30 @@
 		class="text-xs space-y-2 [&>div>label]:text-gray-500 [&>div>span]:text-gray-800 [&>div>span]:font-semibold"
 	>
 		<div>
-			<label>Locality: </label>
-			<span>{currentItem?.locality}</span>
+			<label for="locality">Locality: </label>
+			<span id="locality">{currentItem?.locality}</span>
 		</div>
 		<div>
-			<label>Region: </label>
-			<span>{currentItem?.region}</span>
+			<label for="region">Region: </label>
+			<span id="region">{currentItem?.region}</span>
 		</div>
 		<div>
-			<label>Landing Attempts: </label>
-			<span>{currentItem?.landing_attempts}</span>
+			<label for="landing-attempts">Landing Attempts: </label>
+			<span id="landing-attempts">{currentItem?.landing_attempts}</span>
 		</div>
 		<div>
-			<label>Landing Successes: </label>
-			<span>{currentItem?.landing_successes}</span>
+			<label for="landing-successes">Landing Successes: </label>
+			<span id="landing-successes">{currentItem?.landing_successes}</span>
 		</div>
 		<div>
-			<label>Successes Rate: </label>
+			<label for="success-rate">Successes Rate: </label>
 			<span
+				id="success-rate"
 				class={`px-1 rounded ${successRate > 50 ? 'bg-green-200 !text-green-600' : 'bg-red-200 !text-red-600'}`}
 				>{successRate}</span
 			>
 		</div>
-		<p class="text-xs line-clamp-2"><label>Details: </label> {currentItem?.details}</p>
+		<p class="text-xs line-clamp-2"><label for="">Details: </label> {currentItem?.details}</p>
 	</div>
 </Card>
 
