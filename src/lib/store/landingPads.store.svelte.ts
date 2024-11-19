@@ -7,7 +7,6 @@ let initialLadingPadsData = writable<LandPadItemType[]>([]);
 let ladingPadsData = writable<LandPadItemType[]>([]);
 
 initialLadingPadsData.subscribe((newData) => {
-  console.log("load")
   ladingPadsData.set(newData)
 });
 
