@@ -16,8 +16,8 @@
 
 </script>
 
-<div class="lg:flex justify-between gap-10">
-	<section class="w-full lg:w-9/12">
+<div class="lg:flex justify-between space-y-10 lg:space-y-0 gap-10">
+	<section class="w-full lg:w-7/12 xl:w-9/12">
 		<LandingPadsTableHeader />
 		{#if viewMode === 'list'}
 			<LandingPadsTable {ladingPadsData} />
@@ -26,7 +26,7 @@
 		{/if}
 	</section>
 
-	<aside class="w-full lg:w-3/12 space-y-7">
+	<aside class="w-full lg:w-5/12 xl:w-3/12 space-y-7">
 		<MapView {ladingPadsData} />
 		<RateCart {ladingPadsData} />
 	</aside>
