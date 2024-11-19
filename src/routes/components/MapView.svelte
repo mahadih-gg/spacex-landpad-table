@@ -7,7 +7,7 @@
   let { ladingPadsData }: any = $props();
 
 
-  const markerLocations: { latitude: number, longitude: number, status: string }[] = ladingPadsData.map((pad) => {
+  const markerLocations: { full_name: string, latitude: number, longitude: number, status: string }[] = ladingPadsData.map((pad) => {
     return { full_name: pad.full_name, latitude: pad.latitude, longitude: pad.longitude, status: pad.status };
   });
 
@@ -47,9 +47,11 @@
 
   /* ================ Adds markers to the map based on the latitude, longitude, and status. ================ */
   function addMarkers(map: any, locations: { full_name: string, latitude: number, longitude: number, status: string }[]) {
+		// @ts-ignore
     const markerGroup = L.layerGroup();
 
     locations.forEach(({ full_name, latitude, longitude, status }) => {
+		// @ts-ignore
       const marker = L.marker([latitude, longitude], {
         icon: createCustomMarker(status), // Pass status to determine color
       });
@@ -79,7 +81,8 @@
         <span class="relative inline-flex rounded-full size-3 ${markerColor}"></span>
       </div>
     `;
-
+		
+		// @ts-ignore
     return L.divIcon({
       html: html,
       className: '',
