@@ -8,10 +8,10 @@
 
 	export let data;
 
-	let { ladingPadsData, viewMode } = landingPadsStore;
+	let { initialLadingPadsData, viewMode } = landingPadsStore;
 
 	const { landingPads } = data;
-	ladingPadsData.set(landingPads);
+	initialLadingPadsData.set(landingPads);
 </script>
 
 <div class="lg:flex justify-between space-y-10 lg:space-y-0 gap-10">

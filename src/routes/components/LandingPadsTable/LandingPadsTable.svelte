@@ -1,6 +1,6 @@
 <script lang="ts">
 	import LandingPadsTableItem from 'components/LandingPadsTable/LandingPadsTableItem.svelte';
-	import { Table, TableBody, TableHead, TableHeadCell } from 'flowbite-svelte';
+	import { Table, TableBody, TableBodyCell, TableHead, TableHeadCell } from 'flowbite-svelte';
 	import { landingPadsStore } from 'src/lib/store/landingPads.store.svelte';
 
 	let { ladingPadsData } = landingPadsStore;
@@ -18,9 +18,15 @@
 			{@render th('Status')}
 		</TableHead>
 		<TableBody tableBodyClass="divide-y">
-			{#each $ladingPadsData as item}
-				<LandingPadsTableItem {item} />
-			{/each}
+			{#if $ladingPadsData.length}
+				{#each $ladingPadsData as item}
+					<LandingPadsTableItem {item} />
+				{/each}
+			{:else}
+				<TableBodyCell colspan={7}>
+					<h3 class="w-full flex-center text-gray-500 py-5">No Data Found</h3>
+				</TableBodyCell>
+			{/if}
 		</TableBody>
 	</Table>
 </div>
