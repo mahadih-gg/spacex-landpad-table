@@ -1,5 +1,10 @@
 import 'dotenv/config';
 
+export const config = {
+  runtime: 'edge',
+};
+
+
 export const load = async () => {
 
   const fetchLandingPads = async () => {

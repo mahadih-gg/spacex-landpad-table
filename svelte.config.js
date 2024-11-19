@@ -9,7 +9,9 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			runtime: 'nodejs18.x'
+		}),
 		alias: {
 			src: 'src',
 			components: 'src/routes/components',
